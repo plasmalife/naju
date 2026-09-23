@@ -653,41 +653,107 @@ button {
   border: 1px solid var(--slate-200);
 }
 
-.product-img-box {
-  position: relative;
-  background: #07253d;
-  padding: 0.75rem;
+.product-showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .product-showcase-grid {
+    grid-template-columns: 48% 52%;
+  }
+}
+
+/* PURE TYPOGRAPHIC PRODUCT BANNER CARD (사진 대체 텍스트 카드) */
+.product-typo-banner {
+  background: linear-gradient(145deg, #07253d 0%, #0b3b60 60%, #0e4c7a 100%);
+  color: var(--white);
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-lg);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-lg);
 }
 
-.product-img-box img {
-  border-radius: var(--radius-md);
-  width: 100%;
-  max-width: 480px;
-  aspect-ratio: 3/4; /* 세로 방향 3:4 */
-  object-fit: cover;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
-}
-
-.product-img-box img:hover {
-  transform: scale(1.02);
-}
-
-.product-badge-float {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  background: var(--primary-dark);
-  color: #ffb703;
+.typo-banner-badge {
+  display: inline-block;
   font-size: 0.75rem;
   font-weight: 800;
+  color: #55efc4;
+  background: rgba(85, 239, 196, 0.15);
+  border: 1px solid rgba(85, 239, 196, 0.4);
   padding: 4px 10px;
   border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+  align-self: flex-start;
 }
+
+.typo-banner-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1.3;
+  color: var(--white);
+  margin-bottom: 0.35rem;
+}
+
+.typo-banner-title span {
+  color: #ffb703;
+}
+
+.typo-banner-sub {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 1.25rem;
+}
+
+.typo-banner-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.typo-banner-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.85rem;
+}
+
+.typo-item-heading {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #55efc4;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.typo-item-desc {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+.typo-banner-footer {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+  text-align: center;
+}
+
+.typo-footer-tel {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffb703;
+}
+
 
 .product-detail-body {
   padding: 1.5rem;
@@ -1391,66 +1457,119 @@ button {
   }
 }
 
-.catalog-item-card {
+/* PURE TYPOGRAPHIC TEXT INFO CARDS (사진 대체 텍스트 카드) */
+.typo-info-card {
   background: var(--white);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--slate-200);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
   transition: var(--transition);
 }
 
-.catalog-item-card:hover {
+.typo-info-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
 }
 
-.catalog-thumb-box {
-  background: #f1f5f9;
-  position: relative;
-  overflow: hidden;
+.typo-card-topbar {
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--white);
 }
 
-.catalog-thumb-box img {
-  width: 100%;
-  aspect-ratio: 3/4; /* 세로 방향 portrait */
-  object-fit: cover;
-  cursor: zoom-in;
-  transition: transform 0.3s ease;
+.typo-card-topbar.theme-navy {
+  background: linear-gradient(135deg, #07253d 0%, #0b3b60 100%);
 }
 
-.catalog-thumb-box:hover img {
-  transform: scale(1.03);
+.typo-card-topbar.theme-green {
+  background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
 }
 
-.catalog-zoom-tag {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: var(--radius-sm);
-  pointer-events: none;
+.typo-card-topbar.theme-blue {
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
 }
 
-.catalog-card-info {
-  padding: 0.75rem 1rem;
+.typo-card-topbar.theme-amber {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
 }
 
-.catalog-card-title {
-  font-size: 0.88rem;
+.typo-card-topbar.theme-purple {
+  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%);
+}
+
+.typo-card-topbar.theme-slate {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+.typo-topbar-title {
+  font-size: 0.92rem;
   font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.typo-topbar-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+}
+
+.typo-card-body {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: #ffffff;
+}
+
+.typo-bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.typo-bullet-item {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--slate-700);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.typo-bullet-item strong {
   color: var(--slate-900);
 }
 
-.catalog-card-desc {
-  font-size: 0.75rem;
-  color: var(--slate-500);
-  margin-top: 0.15rem;
+.bullet-check {
+  color: var(--accent);
+  font-weight: 900;
+  flex-shrink: 0;
 }
+
+.typo-card-footer {
+  border-top: 1px dashed var(--slate-200);
+  padding-top: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 
 /* LIGHTBOX MODAL */
