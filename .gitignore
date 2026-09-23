@@ -1,0 +1,11 @@
+# Operating System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python & Temporary
+__pycache__/
+*.py[cod]
+*$py.class
+extracted_pptx/
+optimize_images.py
