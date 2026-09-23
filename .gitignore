@@ -9,5 +9,6 @@ __pycache__/
 *$py.class
 extracted_pptx/
 optimize_images.py
+make_flyer_and_assets.py
 
 .vercel

@@ -4,7 +4,7 @@
 > **플라즈마사업팀 총본부장 이종선 | 직통 상담: 010-7724-2040**  
 > 🌐 **공식 실시간 웹사이트:** [https://naju-three.vercel.app](https://naju-three.vercel.app)
 
-![Hero Banner](images/hero-van.jpg)
+![Hero Banner](images/promo-flyer-vertical.jpg)
 
 ---
 

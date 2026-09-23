@@ -223,8 +223,8 @@ button {
   font-weight: 400;
 }
 
-/* VEHICLE BANNER CARD (Directive: 옆 차량 표시을 메인 화면 표시로 활용) */
-.hero-van-card {
+/* HERO PROMO FLYER & HORIZONTAL TEXT CARDS (세로형 홍보 전단지 + 가로 글씨 특징) */
+.hero-flyer-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -234,73 +234,125 @@ button {
   margin-bottom: 1.5rem;
 }
 
-.hero-van-img-wrap {
+.hero-flyer-grid-split {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .hero-flyer-grid-split {
+    display: grid;
+    grid-template-columns: 46% 54%;
+    align-items: stretch;
+  }
+}
+
+.hero-flyer-img-wrap {
   position: relative;
-  background: #000;
+  background: #041b2d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
-.hero-van-img-wrap img {
+.hero-flyer-img-wrap img {
   width: 100%;
-  aspect-ratio: 16/9;
+  max-width: 440px;
+  aspect-ratio: 3/4; /* 세로 방향 vertical portrait */
   object-fit: cover;
-  transition: transform 0.4s ease;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
 }
 
-.van-overlay-caption {
+.hero-flyer-img-wrap img:hover {
+  transform: scale(1.02);
+}
+
+.flyer-zoom-badge {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(7, 37, 61, 0.95) 0%, rgba(7, 37, 61, 0.6) 60%, transparent 100%);
-  padding: 1.25rem 1rem 0.75rem;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(7, 37, 61, 0.9);
+  color: #ffb703;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 183, 3, 0.4);
+  pointer-events: none;
 }
 
-.van-overlay-title {
-  font-size: 0.9rem;
+/* 주요 특징 내용 - 가로 글씨 형태 리스트 */
+.hero-features-list {
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  background: rgba(7, 37, 61, 0.6);
+}
+
+.hero-feature-item {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  transition: var(--transition);
+}
+
+.hero-feature-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(85, 239, 196, 0.4);
+}
+
+.feature-tag-badge {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  margin-top: 1px;
+}
+
+.tag-green {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.tag-blue {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.tag-amber {
+  background: #f59e0b;
+  color: #0f172a;
+}
+
+.feature-item-content {
+  flex: 1;
+}
+
+.feature-item-title {
+  font-size: 0.95rem;
   font-weight: 800;
-  color: #ffb703;
+  color: #55efc4;
+  margin-bottom: 0.2rem;
   letter-spacing: -0.01em;
 }
 
-.van-overlay-text {
+.feature-item-desc {
   font-size: 0.8rem;
-  color: #f1f5f9;
+  color: #e2e8f0;
+  line-height: 1.45;
 }
 
-.hero-van-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: rgba(0, 0, 0, 0.25);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.van-item {
-  padding: 0.75rem 0.5rem;
-  text-align: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.van-item:last-child {
-  border-right: none;
-}
-
-.van-item-icon {
-  font-size: 1.3rem;
-  display: block;
-  margin-bottom: 0.2rem;
-}
-
-.van-item-title {
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: #55efc4;
-}
-
-.van-item-desc {
-  font-size: 0.68rem;
-  color: #94a3b8;
-  line-height: 1.3;
-}
 
 /* HERO CTA BUTTONS */
 .hero-cta-group {
@@ -418,7 +470,7 @@ button {
 
 .profile-img-box img {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4; /* 세로 방향 portrait */
   object-fit: cover;
   object-position: center top;
 }
@@ -1352,7 +1404,7 @@ button {
 
 .catalog-thumb-box img {
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4; /* 세로 방향 portrait */
   object-fit: cover;
   cursor: zoom-in;
   transition: transform 0.3s ease;
