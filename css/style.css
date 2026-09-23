@@ -655,8 +655,8 @@ button {
 
 .product-img-box {
   position: relative;
-  background: #f8fafc;
-  padding: 1rem;
+  background: #07253d;
+  padding: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -664,8 +664,17 @@ button {
 
 .product-img-box img {
   border-radius: var(--radius-md);
-  max-height: 380px;
-  object-fit: contain;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 3/4; /* 세로 방향 3:4 */
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.product-img-box img:hover {
+  transform: scale(1.02);
 }
 
 .product-badge-float {
