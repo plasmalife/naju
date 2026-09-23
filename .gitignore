@@ -9,3 +9,5 @@ __pycache__/
 *$py.class
 extracted_pptx/
 optimize_images.py
+
+.vercel
